@@ -31,6 +31,7 @@ header h1 {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  order: 2;
 }
 
 .bar {
@@ -38,7 +39,35 @@ header h1 {
   height: 3px;
   background-color: #fff;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: 0.2s ease-in-out; /* Improved animation speed */
+}
+
+.close {
+  display: none;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  position: relative;
+  transform: rotate(45deg);
+  transition: 0.2s ease-in-out; /* Improved animation speed */
+}
+
+.close:before, .close:after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.close:before {
+  transform: rotate(-90deg);
+}
+
+.close:hover {
+  background-color: #ccc;
 }
 
 nav {
@@ -58,6 +87,49 @@ nav a {
 nav a:hover {
   background-color: #555;
 }
+/* Your existing styles */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#home {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.home-content {
+  max-width: 60%;
+}
+
+.image-content {
+  width: 20%; /* Adjust the percentage to control the size */
+}
+
+.round-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.round-image img {
+  width: 100%;
+  height: auto;
+}
+
 
 section {
   height: 100vh;
@@ -122,10 +194,37 @@ ul {
     align-items: flex-start;
   }
 
-  .burger-menu {
-    display: flex;
+  header h1, .burger-menu, .close {
     order: 2;
-    margin-left: auto; /* Push the burger menu to the right */
+    margin-left: auto;
+  }
+
+  .burger-menu, .close {
+    display: flex;
+  }
+
+  .bar {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .burger-menu:hover .bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .burger-menu:hover .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu:hover .bar:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  .close:hover {
+    background-color: #fff;
+  }
+
+  .header-info {
+    margin-top: 10px;
   }
 
   nav {
