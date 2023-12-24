@@ -8,3 +8,7 @@ document.getElementById('github-projects').innerHTML = `
   <a href="#" target="_blank">Project 5</a>
   <a href="#" target="_blank">Project 6</a>
 `;
+function toggleNav() {
+  var nav = document.getElementById("nav");
+  nav.classList.toggle("show");
+}
